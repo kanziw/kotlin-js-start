@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kanziw/kotlin-js-start#readme",
   "dependencies": {
+    "express": "^4.15.0",
     "kotlin": "^1.1.0",
     "lodash": "^4.17.4"
   }
