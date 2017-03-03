@@ -2,9 +2,10 @@
   "name": "kotlin-js-start",
   "version": "1.0.0",
   "description": "Kotlin-Js-Start",
-  "main": "kotlin-js-start.js",
+  "main": "main.js",
   "scripts": {
-    "test": "node kotlin-js-start.js"
+    "build": "kotlinc-js -output main.js -libraries node_modules/ -meta-info -module-kind commonjs -verbose src/hello.kt",
+    "start": "node main.js"
   },
   "repository": {
     "type": "git",

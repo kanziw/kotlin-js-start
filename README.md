@@ -241,3 +241,22 @@ DONE
 
 
 
+## Build on command line
+
+* Install CLI-command tool with brew
+
+```shell
+$ brew install kotlin
+```
+
+* Build
+
+```shell
+$ kotlinc-js -output main.js -libraries node_modules/ -meta-info -module-kind commonjs -verbose src/hello.kt
+```
+
+### by NPM
+
+* Build : `npm run build`
+* Start : `npm run start`
+

@@ -164,7 +164,7 @@
     app.listen(3762);
   }
   _.main_kand9s$ = main;
-  Kotlin.defineModule('kotlin-js-start', _);
+  Kotlin.defineModule('main', _);
   main([]);
   return _;
 }(module.exports, require('kotlin'), require('lodash'), require('express')));
