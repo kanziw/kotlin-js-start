@@ -9,7 +9,7 @@
   <component name="KotlinCommonCompilerArguments">
     <option name="languageVersion" value="1.1" />
     <option name="apiVersion" value="1.1" />
-    <option name="coroutinesWarn" value="true" />
+    <option name="coroutinesEnable" value="true" />
   </component>
   <component name="KotlinCompilerSettings">
     <option name="outputDirectoryForJsLibraryFiles" value="node_modules" />
