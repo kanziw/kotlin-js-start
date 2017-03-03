@@ -17,7 +17,9 @@
 
 ## Hello, Kotlin
 
-```ko
+* hello.kt
+
+```kotlin
 fun main(args: Array<String>) {
     println("Hello Kotlin")
 }
@@ -42,5 +44,40 @@ $ npm run test
 > node kotlin-js-start.js
 
 Hello Kotlin
+```
+
+
+
+## Import 실습 - lodash
+
+* hello.kt
+
+```kotlin
+external interface Lodash {
+    fun isString(obj: Any = definedExternally): Lodash
+    fun isNull(obj: Any = definedExternally): Lodash
+}
+
+@JsModule("lodash")
+external val lodash: Lodash
+
+fun main(args: Array<String>) {
+    println("Hello Kotlin")
+    println(lodash.isString("STRING").toString())
+    println(lodash.isNull("STRING").toString())
+}
+```
+
+* 결과
+
+```shell
+$ npm run test
+
+> kotlin-js-start@1.0.0 test /Users/kanziw/dev/kotlin-js-start
+> node kotlin-js-start.js
+
+Hello Kotlin
+true
+false
 ```
 
