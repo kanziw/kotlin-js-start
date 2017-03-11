@@ -7,7 +7,7 @@
 
 
 
-## Start IntelliJ Project
+## Start IntelliJ Project ([baf9a82](https://github.com/kanziw/kotlin-js-start/commit/baf9a829778940e044911f6b8ce92739d0086f1b))
 
 ![New Project](./images/PROJECT_00.png)
 
@@ -15,16 +15,9 @@
 
 
 
-## Hello, Kotlin
+## Hello, Kotlin ([54deca6](https://github.com/kanziw/kotlin-js-start/commit/54deca6d38ae5da4b316eb51965c8faf3599ec5a))
 
-* hello.kt
-
-```kotlin
-fun main(args: Array<String>) {
-    println("Hello Kotlin")
-}
-```
-
+* [hello.kt](https://github.com/kanziw/kotlin-js-start/blob/54deca6d38ae5da4b316eb51965c8faf3599ec5a/src/hello.kt)
 
 
 * IntelliJ 설정
@@ -48,26 +41,9 @@ Hello Kotlin
 
 
 
-## Import 실습 - lodash
+## Import 실습 - lodash ([de3591b](https://github.com/kanziw/kotlin-js-start/commit/de3591b46dfb1ab95c1119be05821f68ce0e15b7))
 
-* hello.kt
-
-```kotlin
-external interface Lodash {
-    fun isString(obj: Any = definedExternally): Lodash
-    fun isNull(obj: Any = definedExternally): Lodash
-}
-
-@JsModule("lodash")
-external val lodash: Lodash
-
-fun main(args: Array<String>) {
-    println("Hello Kotlin")
-    println(lodash.isString("STRING").toString())
-    println(lodash.isNull("STRING").toString())
-}
-```
-
+* [hello.kt](https://github.com/kanziw/kotlin-js-start/blob/de3591b46dfb1ab95c1119be05821f68ce0e15b7/src/hello.kt)
 * 결과
 
 ```shell
@@ -83,44 +59,10 @@ false
 
 
 
-## Import 실습 - express
+## Import 실습 - express ([d41e1ed](https://github.com/kanziw/kotlin-js-start/commit/d41e1ed3e3d0c17c0d85026168209dcf1381bd5e))
 
-* hello.kt
+* [hello.kt](https://github.com/kanziw/kotlin-js-start/blob/d41e1ed3e3d0c17c0d85026168209dcf1381bd5e/src/hello.kt)
 
-```kotlin
-external interface Lodash {
-    fun isString(obj: Any = definedExternally): Lodash
-    fun isNull(obj: Any = definedExternally): Lodash
-}
-
-@JsModule("lodash")
-external val lodash: Lodash
-
-external interface Express {
-    fun get(address: String, callback: Any): Express
-    fun listen(port: Int)
-}
-
-@JsModule("express")
-external fun express(): Express
-
-external interface ExpressResponse {
-    fun send(string: String): Unit
-}
-
-fun main(args: Array<String>) {
-    println("Hello Kotlin")
-    println(lodash.isString("STRING").toString())
-    println(lodash.isNull("STRING").toString())
-
-    val app = express()
-
-    app.get("/") { req: Any, res: ExpressResponse -> res.send("Hello, Express.") }
-
-    println("Starting server, PORT: 3762")
-    app.listen(3762)
-}
-```
 
 * Server
 
@@ -145,75 +87,10 @@ Hello, Express.
 
 
 
-## coroutine - yield basic
+## coroutine - yield basic ([515f668](https://github.com/kanziw/kotlin-js-start/commit/515f668f823cca77d5745a39f7ab2ebd3f9bb3d7))
 
-* hello.kt
+* [hello.kt](https://github.com/kanziw/kotlin-js-start/blob/515f668f823cca77d5745a39f7ab2ebd3f9bb3d7/src/hello.kt)
 
-```kotlin
-import kotlin.coroutines.experimental.*
-
-external interface Lodash {
-    fun isString(obj: Any = definedExternally): Lodash
-    fun isNull(obj: Any = definedExternally): Lodash
-}
-
-@JsModule("lodash")
-external val lodash: Lodash
-
-external interface Express {
-    fun get(address: String, callback: Any): Express
-    fun listen(port: Int)
-}
-
-@JsModule("express")
-external fun express(): Express
-
-external interface ExpressResponse {
-    fun send(string: String): Unit
-}
-
-fun main(args: Array<String>) {
-    println("Hello Kotlin")
-    println(lodash.isString("STRING").toString())
-    println(lodash.isNull("STRING").toString())
-
-    val app = express()
-
-    app.get("/") { req: Any, res: ExpressResponse -> res.send("Hello, Express.") }
-
-    val DONE = "DONE\n"
-
-    app.get("/yield/1", fun(req: Any, res: ExpressResponse) {
-        val lazySeq = buildSequence {
-            print("START ")
-            for (i in 1..5) {
-                yield(i)
-                print("STEP ")
-            }
-            print("END\n")
-        }
-
-        // Print the first three elements of the sequence
-        lazySeq.take(3).forEach { print("$it ") }
-
-        res.send(DONE)
-    })
-
-    app.get("/yield/2") { req: Any, res: ExpressResponse ->
-        val lazySeq = buildSequence {
-            yield(0)
-            yieldAll(1..10)
-        }
-
-        lazySeq.forEach { print("$it ") }
-
-        res.send(DONE)
-    }
-
-    println("Starting server, PORT: 3762")
-    app.listen(3762)
-}
-```
 
 * Server
 
@@ -241,7 +118,7 @@ DONE
 
 
 
-## Build on command line
+## Build on command line ([7ba4ec6](https://github.com/kanziw/kotlin-js-start/commit/7ba4ec6bebd75b2af080d1d0ed3cfb4895720c16))
 
 * Install CLI-command tool with brew
 
